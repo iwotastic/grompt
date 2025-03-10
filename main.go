@@ -7,24 +7,9 @@ import (
 	"strings"
 )
 
-const Csi = "\\x1b["
-
-const SetBlue = Csi + "96m"
-const SetMuted = Csi + "90m"
-const SetNoStyle = Csi + "0m"
-
-const ArrowIcon = "\\uf178 "
-const FolderIcon = "\\uf07b "
-const DriveIcon = "\\uf0a0 "
-
-const HomeIcon = "\\uf015 "
-const DevIcon = "\\ueeff "
-const DocIcon = "\\uf016 "
-const DownloadsIcon = "\\uf063 "
-const DesktopIcon = "\\uf108 "
-const UsersIcon = "\\uedca "
-const LibraryIcon = "\\uf19c "
-const ApplicationsIcon = "\\uf0be "
+const SetBlue = "%%14F"
+const SetMuted = "%%8F"
+const SetNoStyle = "%%f"
 
 func setPrompt(prompt string) {
 	escaped := strings.ReplaceAll(prompt, "'", "'\"'\"'")
@@ -93,7 +78,7 @@ func printSetPs1() {
 		dirname = "~"
 	}
 
-	setPrompt(SetBlue + iconForDir(cwd) + " " + dirname + SetNoStyle + " " + SetMuted + ArrowIcon + SetNoStyle + " ")
+	setPrompt(SetBlue + iconForDir(cwd) + SetNoStyle + " " + dirname + " " + SetMuted + ArrowIcon + SetNoStyle + " ")
 }
 
 func printSetup() {
